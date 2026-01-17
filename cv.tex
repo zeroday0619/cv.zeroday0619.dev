@@ -1,0 +1,141 @@
+% English CV base template (single-file)
+% Compile: latexmk -pdf cv.tex
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{xcolor}
+
+\hypersetup{
+  colorlinks=true,
+  urlcolor=blue,
+  linkcolor=black,
+  pdfauthor={Euiseo Cha},
+  pdftitle={Euiseo Cha -- CV}
+}
+
+% Section formatting
+\titleformat{\section}{\large\bfseries}{}{0em}{}[\titlerule]
+\titlespacing*{\section}{0pt}{12pt}{8pt}
+
+% Compact lists
+\setlist[itemize]{noitemsep,topsep=2pt,leftmargin=*}
+
+% --- Simple CV macros ---
+\newcommand{\cvname}[1]{\begin{center}\Huge\bfseries #1\end{center}}
+\newcommand{\cvcontact}[1]{\begin{center}\small #1\end{center}}
+
+% Entry with title (role), org, location, dates, and bullets
+\newcommand{\cventry}[5]{%
+  \textbf{#1} \hfill {\small #4}\\
+  \textit{#2} \hfill \textit{\small #3}\\
+  \vspace{-4pt}
+  \begin{itemize}[topsep=2pt,itemsep=2pt]
+    #5
+  \end{itemize}
+  \vspace{2pt}
+}
+
+% Two-column skill row: Category : items
+\newcommand{\cvskill}[2]{\textbf{#1}: #2\\}
+
+\begin{document}
+
+% ===== Header =====
+\cvname{Euiseo Cha}
+\cvcontact{
+  Cheonan-si, South Korea \;|\;
+  \href{mailto:escha@zeroday0619.dev}{escha@zeroday0619.dev} \;|\;
+  +82\,010\,9061\,4607 \;|\;
+  \href{https://github.com/zeroday0619}{github.com/zeroday0619} \;|\;
+  \href{https://www.linkedin.com/in/euiseo-cha}{linkedin.com/in/euiseo-cha}
+}
+
+% ===== Summary =====
+\section*{Summary}
+Open-source enthusiast and Ubuntu Member with active contributions to the Ubuntu Community. As a forum moderator for Ubuntu Korea LoCo, I support community collaboration and knowledge sharing. I contribute code to open-source projects through GitHub and other collaboration platforms, and I'm committed to long-term growth in computer science and accelerated computing.
+
+% ===== Experience =====
+% \section*{Experience}
+% \cventry{Job Title}{Company Name}{City, Country}{YYYY.MM -- Present}{
+%   \item Impact-focused bullet: what you did + measurable result (e.g., reduced p95 latency by 35\%).
+%   \item Scope/ownership bullet: systems, scale, responsibilities.
+%   \item Tech stack bullet: Go, Java, PostgreSQL, Kubernetes, AWS, etc.
+% }
+
+% \cventry{Job Title}{Company Name}{City, Country}{YYYY.MM -- YYYY.MM}{
+%   \item Achievement bullet with metric.
+%   \item Another achievement.
+% }
+
+% ===== Projects (optional but recommended) =====
+\section*{Projects}
+\cventry{Discord TTS Bot}{koe-next (Team Project)}{GitHub}{Ongoing}{
+  \item Python-based Discord text-to-speech bot with strict type hints and comprehensive type coverage.
+  \item Dependency management via \texttt{uv}; code formatting and linting with \texttt{ruff}.
+  \item Implemented test-driven development (TDD) approach for robust, bug-free design.
+}
+\cventry{Discord Markdown Parser}{discordown (Team Project)}{GitHub}{Ongoing}{
+  \item Parses Discord markdown syntax and converts it to Abstract Syntax Tree (AST) representation.
+  \item Follows same engineering principles: strict type hints, \texttt{uv} dependency management, \texttt{ruff} formatting, and TDD.
+}
+\cventry{LUKS Encryption CLI}{luksctl}{GitHub}{Ongoing}{
+  \item Rust-based CLI tool for easily mounting and unmounting LUKS encrypted volumes.
+  \item Features UUID-based mapper name auto-generation, auto-create mount points, and multi-language support.
+  \item Published on crates.io; available on \href{https://crates.io/crates/luksctl}{crates.io/crates/luksctl}.
+}
+\cventry{Open Source Contribution}{uvloop (MagicStack)}{GitHub}{2022.06 -- 2022.09}{
+  \item Contributed fixes to improve compatibility with Python 3.11+.
+  \item Updated CI/testing to cover Python 3.11 development versions.
+  \item Merged upstream: \href{https://github.com/MagicStack/uvloop/pull/473}{MagicStack/uvloop\#473}
+}
+
+% ===== Education =====
+\section*{Education}
+\textbf{B.S. (Candidate), Information and Communication Engineering} \hfill \small 2022.03 -- Present\\
+\textit{Wonkwang University, South Korea} \hfill \textit{\small On leave of absence}
+
+% ===== Skills =====
+\section*{Skills}
+\begin{itemize}[topsep=0pt,itemsep=1pt]
+  \item \textbf{Languages}: Python, C/C++, Go, Rust
+  \item \textbf{Backend}: FastAPI
+  \item \textbf{Infrastructure}: Linux (Ubuntu, RHEL), Docker, LXD/LXC
+  \item \textbf{Practices}: CI/CD, Security
+\end{itemize}
+
+% ===== Certifications (optional) =====
+% \section*{Certifications}
+% \begin{itemize}
+%   \item Certification Name -- Issuer (YYYY)
+% \end{itemize}
+
+% ===== Publications / Talks (optional) =====
+\section*{Publications \& Talks}
+\begin{itemize}
+  \item Building Canonical Landscape Server in LXD Container on Ubuntu 24.04 LTS -- UbuCon Korea 2024 (2024) \href{https://events.canonical.com/event/48/contributions/441/}{talk} | \href{https://youtu.be/dd27ED2AW60}{recording}
+  \item Upgrading Legacy Ubuntu Servers: A Research Lab Migration Experience from 18.04 LTS to 24.04.2 LTS -- UbuCon Korea 2025 (2025) \href{https://events.canonical.com/event/126/contributions/698/}{talk}
+\end{itemize}
+
+% ===== Extra-curricular Activities =====
+\section*{Extra-curricular Activities}
+\begin{itemize}
+  \item Ubuntu Member
+  \item Ubuntu Korea Community -- Community Moderation Team (Forum Moderator)
+  \item UbuCon Korea 2025 Organizer
+  \item MiniDebConf Busan 2025 Team
+\end{itemize}
+
+% ===== Awards (optional) =====
+% \section*{Awards}
+% \begin{itemize}
+%   \item Award Name -- Organization (YYYY)
+% \end{itemize}
+
+\end{document}
