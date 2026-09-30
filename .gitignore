@@ -18,3 +18,8 @@
 
 # PDFs (optional: comment out if you want to commit outputs)
 cv.pdf
+
+# Generated HTML and Python bytecode.
+dist/
+__pycache__/
+*.pyc

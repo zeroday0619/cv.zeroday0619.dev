@@ -1,0 +1,13 @@
+.git
+.agents
+.codex
+dist
+tests
+__pycache__
+*.pdf
+*.aux
+*.log
+*.out
+*.fls
+*.fdb_latexmk
+*.synctex.gz
