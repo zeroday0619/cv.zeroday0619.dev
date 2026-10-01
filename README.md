@@ -41,7 +41,7 @@ Python 3.10 or later is required for the builder.
 
 ```bash
 python3 scripts/build_html.py --source cv.tex --output dist/index.html
-cp web/styles.css dist/styles.css
+cp web/styles.css web/og-image.png dist/
 python3 -m http.server 8080 --bind 127.0.0.1 --directory dist
 ```
 
@@ -55,6 +55,38 @@ omitted. The generated `dist/` directory is not committed.
 python3 -m unittest discover -s tests -v
 docker compose config
 ```
+
+## Social link previews
+
+The HTML builder injects Open Graph and Twitter Card metadata directly into
+the document head. Titles and descriptions come from the CV name and Summary.
+The image is `web/og-image.png` (1200 × 630 pixels), copied into the static site.
+No client-side JavaScript or platform API credentials are required.
+
+The default canonical URL is `https://cv.zeroday0619.dev/`. Set the actual
+public deployment URL before building if it differs:
+
+```bash
+CV_SITE_URL=https://cv.example.com/ docker compose up --build -d
+```
+
+For a local build, pass `--site-url https://cv.example.com/` to the HTML builder.
+Rebuild the image after changing this setting. Replace `web/og-image.png` when
+the name or roles shown in the preview image change; the image is a static asset.
+
+Open Graph provides shared preview metadata for Facebook, Mastodon, Misskey,
+Bluesky clients, and Discord. Twitter/X receives explicit `twitter:*` tags with
+`summary_large_image`. Actual rendering depends on the client, instance, user
+settings, and cached preview. Bluesky clients fetch and embed website-card
+metadata when composing posts; tags do not create a post or refresh old embeds.
+
+External previews require the page and image to be publicly accessible.
+Localhost validation checks the markup and asset delivery, not platform-side
+rendering. After deployment, verify previews in each platform without posting.
+
+References: [Open Graph protocol](https://ogp.me/),
+[Twitter Card markup](https://docs.x.com/resources/fundamentals/cards/overview/markup),
+[Bluesky website cards](https://docs.bsky.app/docs/advanced-guides/posts#website-card-embeds).
 
 ## PDF build
 - Recommended: `latexmk`

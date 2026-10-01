@@ -1,10 +1,12 @@
 FROM python:3.13-alpine AS builder
 WORKDIR /build
+ARG CV_SITE_URL=https://cv.zeroday0619.dev/
 COPY cv.tex ./cv.tex
 COPY scripts/build_html.py ./scripts/build_html.py
 COPY web/styles.css ./web/styles.css
-RUN python scripts/build_html.py --source cv.tex --output dist/index.html \
-    && cp web/styles.css dist/styles.css
+COPY web/og-image.png ./web/og-image.png
+RUN python scripts/build_html.py --source cv.tex --output dist/index.html --site-url "$CV_SITE_URL" \
+    && cp web/styles.css web/og-image.png dist/
 
 FROM python:3.13-alpine
 WORKDIR /site
