@@ -22,6 +22,9 @@ article, .entry { margin-bottom: 1.4rem; }
 .entry-header, .entry-meta { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
 .entry-header > *, .entry-meta > * { min-width: 0; }
 .dates, .location, .contact { color: #526274; font-size: .9rem; }
+.contact { margin-top: 1rem; line-height: 2; }
+.contact strong { color: #243042; }
+.contact a { display: inline-block; padding: .1rem 0; }
 code { font-size: .95em; background: #eef3f7; padding: .1rem .3rem; border-radius: 3px; }
 @media screen and (max-width: 960px) {
   body { padding: 1.5rem 1rem; }

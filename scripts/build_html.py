@@ -78,7 +78,7 @@ class Parser:
                 output.append(f"<{tag}>{render(self.group())}</{tag}>")
             elif command == "href":
                 address = self.group()
-                if not re.match(r"^(https?://|mailto:)", address):
+                if not re.match(r"^(https?://|mailto:|tel:)", address):
                     raise ConversionError(f"Unsupported link scheme: {address}")
                 output.append(f'<a href="{html.escape(address, quote=True)}">{render(self.group())}</a>')
             elif command == "cvname":

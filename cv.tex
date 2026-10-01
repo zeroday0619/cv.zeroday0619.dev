@@ -29,7 +29,7 @@
 
 % --- Simple CV macros ---
 \newcommand{\cvname}[1]{\begin{center}\Huge\bfseries #1\end{center}}
-\newcommand{\cvcontact}[1]{\begin{center}\small #1\end{center}}
+\newcommand{\cvcontact}[1]{\begin{center}\small\renewcommand{\baselinestretch}{1.3}\selectfont #1\end{center}}
 
 % Entry with title (role), org, location, dates, and bullets
 \newcommand{\cventry}[5]{%
@@ -50,13 +50,13 @@
 % ===== Header =====
 \cvname{Euiseo Cha}
 \cvcontact{
-  Cheonan-si, South Korea \;|\;
-  \href{mailto:escha@zeroday0619.dev}{escha@zeroday0619.dev} \;|\;
-  +1 (315) 238-3322 \;|\;
-  \href{https://github.com/zeroday0619}{github.com/zeroday0619} \;|\;
-  \href{https://salsa.debian.org/zeroday0619}{salsa.debian.org/zeroday0619}\\
-  \href{https://www.linkedin.com/in/euiseo-cha}{linkedin.com/in/euiseo-cha} \;|\;
-  \href{https://bio.ubuntu-kr.org/u/escha}{bio.ubuntu-kr.org/u/escha}
+  \textbf{Location:} Cheonan-si, Republic of Korea\\
+  \textbf{Email:} \href{mailto:escha@zeroday0619.dev}{escha@zeroday0619.dev} \;|\;
+  \textbf{Phone:} \href{tel:+13152383322}{+1 (315) 238-3322}\\
+  \textbf{GitHub:} \href{https://github.com/zeroday0619}{zeroday0619} \;|\;
+  \textbf{Salsa:} \href{https://salsa.debian.org/zeroday0619}{zeroday0619}\\
+  \textbf{LinkedIn:} \href{https://www.linkedin.com/in/euiseo-cha}{Euiseo Cha} \;|\;
+  \textbf{Ubuntu Korea:} \href{https://bio.ubuntu-kr.org/u/escha}{escha}
 }
 
 \section*{Summary}
@@ -65,7 +65,7 @@ Python software engineer and infrastructure engineer, currently an Infrastructur
 \section*{Work Experience}
 \cventry{Intern (Infrastructure / KREONET)}
 {Korea Institute of Science and Technology Information (KISTI)}
-{Daejeon, South Korea}{2026.07 -- 2026.10}{
+{Daejeon, Republic of Korea}{2026.07 -- 2026.10}{
   \item \textbf{Backend development:} Developed iPages, a Python/FastAPI backend for static-site publishing with repository integration, OIDC authentication, and Jekyll rendering. Used PostgreSQL, SQLAlchemy/SQLModel, Alembic, and Valkey; added automated tests and API documentation.
   \item \textbf{Linux security automation:} Developed assessment and remediation workflows based on KISA CCE Linux criteria (U-01--U-67). Separated evidence collection and policy compilation from transactional remediation through JSONL interfaces, with post-scan verification and rollback. Validated selected changes, idempotent reapplication, and restoration across eight Linux container images.
   \item \textbf{Platform design:} Designed a Kubernetes-based Platform as a Service (PaaS) system, with Kubernetes/RKE2 infrastructure work supporting the design.
@@ -75,7 +75,7 @@ Python software engineer and infrastructure engineer, currently an Infrastructur
 \section*{Technical Skills}
 \begin{itemize}[topsep=0pt,itemsep=1pt]
   \item \textbf{Languages}: Python, C/C++, Go, Rust
-  \item \textbf{Backend}: FastAPI
+  \item \textbf{Backend}: FastAPI, Flask
   \item \textbf{Infrastructure}: Linux (Debian, Ubuntu, RHEL), Docker, LXD/LXC
   \item \textbf{Practices}: CI/CD, Security
 \end{itemize}
@@ -105,7 +105,7 @@ Python software engineer and infrastructure engineer, currently an Infrastructur
 
 \section*{Education}
 \textbf{B.S. (Candidate), Information and Communication Engineering} \hfill \small 2022.03 -- Present\\
-\textit{Wonkwang University, South Korea} \hfill \textit{\small On leave of absence}
+\textit{Wonkwang University, Republic of Korea} \hfill \textit{\small On leave of absence}
 
 \section*{Talks \& Workshops}
 \begin{itemize}
